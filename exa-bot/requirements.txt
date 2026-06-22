@@ -1,0 +1,4 @@
+httpx>=0.27
+exa-py>=1.0
+pyairtable>=2.3
+pytest>=8.0

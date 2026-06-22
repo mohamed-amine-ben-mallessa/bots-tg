@@ -1,0 +1,20 @@
+# À lancer depuis bots-tg/exa-bot/ :  docker compose up -d --build
+# Le contexte de build est le dossier parent (..) pour inclure botkit/.
+services:
+  exa-bot:
+    build:
+      context: ..
+      dockerfile: exa-bot/Dockerfile
+    container_name: exa-bot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      TZ: Europe/Paris
+      # Données persistantes dans le dossier monté (RW) : clés + stats de jeu.
+      KEYS_PATH: /app/data/keys.json
+      STATS_PATH: /app/data/stats.json
+    volumes:
+      # On monte un DOSSIER (pas un fichier) : l'écriture atomique
+      # (tmp + os.replace) fonctionne à l'intérieur, contrairement à un
+      # bind-mount de fichier unique (Errno 16 Device busy).
+      - ./data:/app/data

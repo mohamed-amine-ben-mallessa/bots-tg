@@ -1,0 +1,35 @@
+# ── Secrets — NE JAMAIS committer ─────────────────────────────────────────────
+**/.env
+**/keys.json
+**/*_keys.json
+**/exa_keys.json
+
+# ── État runtime / données générées ──────────────────────────────────────────
+**/data/
+**/stats.json
+**/seen_store.json
+**/*_state.json
+**/builder_state.json
+**/cv_builder_state.json
+
+# ── Fichiers de données perso (CV, profils, exports) ─────────────────────────
+**/profil.*.json
+**/profils.json
+**/export_*.csv
+**/*.csv
+**/*.pdf
+**/assets/photo-*
+
+# … mais on VERSIONNE les exemples
+!**/.env.example
+!**/*.example.json
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+**/*.log
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
